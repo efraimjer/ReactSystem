@@ -1,26 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import Products from './component/Products';
+import Clientes from './component/Clientes'
+import Popup from 'reactjs-popup';
+import Styled from "styled-components";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+    
+    render(){
+
+        const Button = Styled.button`
+        Background: palevioletred;
+        color: white;
+        font-size: 1em;
+        margin: 1em;
+        padding: 0.25em 1em;
+        border: 2px solid palevioletred;
+        border-radius: 3px;
+        
+        `
+
+    return ( 
+
+    
+    <div className = "App" >
+
+        <header className="App-header">
+            <ul>
+                <Popup trigger={<Button>Produtos</Button>} 
+                modal
+                closeOnDocumentClick>
+                    <Products></Products>
+                </Popup>
+            </ul>
+            <ul>        <Popup trigger={<Button>Clientes</Button>} 
+                modal
+                closeOnDocumentClick>
+                    <Clientes/>
+                </Popup>
+            </ul>
+            
+        </header>
+
+        <body className = "App-body">
+
+            <h2>LeTeca</h2>
+            <h2>BemDita</h2>
+        </body>
+        
+      
+</div >
+    );
+}
 }
 
 export default App;

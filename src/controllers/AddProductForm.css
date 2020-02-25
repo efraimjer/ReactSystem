@@ -1,0 +1,42 @@
+.form-inline{
+    display: flex;
+    flex-flow: column;
+}
+
+
+.label {
+    text-align: left;
+
+}
+
+.input-field-code {
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-field {
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button {
+    width: 25%;
+    align-self: center;
+    Background: palevioletred;
+    color: white;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 3px;
+}
