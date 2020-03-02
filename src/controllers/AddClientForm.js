@@ -62,7 +62,7 @@ export default class componentName extends Component {
       telefone: this.state.telefone
     };
 
-    axios.post('http://localhost:5000/clients/add', newClient)
+    axios.post('http://localhost:4000/clients/add', newClient)
       .then(res => console.log(res.data));
 
     this.setState({

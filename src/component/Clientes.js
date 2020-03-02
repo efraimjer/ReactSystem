@@ -16,7 +16,7 @@ export default class componentName extends Component {
 }
 
 componentDidMount() {
-    axios.get('http://localhost:5000/clients')
+    axios.get('http://localhost:4000/clients/')
         .then(response => {
             this.setState({clients: response.data});
         })
@@ -26,7 +26,7 @@ componentDidMount() {
 }
 
 componentDidUpdate() {
-    axios.get('http://localhost:5000/clients')
+    axios.get('http://localhost:4000/clients/')
     .then(response => {
         this.setState({clients: response.data});
     })
@@ -60,7 +60,7 @@ componentDidUpdate() {
 
       <body>
       <div>     
-          <ReactTable className="ReactTableE" 
+          <ReactTable className="-striped" 
           pageSize={10}
           data={this.state.clients}
           columns={columns}

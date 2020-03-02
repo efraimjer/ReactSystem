@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import './App.css';
 import Products from './component/Products';
 import Clientes from './component/Clientes'
+import NewSale from  './controllers/NewSale'
 import Popup from 'reactjs-popup';
 import Styled from "styled-components";
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import Contatos from './icons/icons8-contatos-50.svg'
 
 
 
@@ -40,7 +42,14 @@ class App extends Component {
                     closeOnDocumentClick>
                         <Clientes/>
                     </Popup>
-                </ul>                
+                </ul>
+                <ul>  
+                    <Popup trigger={<Button>Nova Venda</Button>} 
+                    modal
+                    closeOnDocumentClick>
+                        <NewSale/>
+                    </Popup>
+                </ul>                 
             </header>
         </container>
 

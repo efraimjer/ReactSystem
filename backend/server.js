@@ -24,10 +24,12 @@ app.listen(PORT, function(){
     console.log("Server is running on Port: " + PORT);
 });
 
+
 const routes = express.Router();
 
 app.use ('/products', routes);
 
+{/*Finding all the products*/}
 routes.route('/').get(function(req, res){
     Product.find(function(err, products){
         if (err) {
@@ -39,6 +41,7 @@ routes.route('/').get(function(req, res){
 
 });
 
+{/*Finding a product by its _id*/}
 routes.route('/:id').get(function(req, res){
     let id = req.params.id;
     Product.findById(id, function(err, products){
@@ -46,6 +49,7 @@ routes.route('/:id').get(function(req, res){
     });
 });
 
+{/*Finding a product by a part of its name*/}
 routes.route('/findByName/:name').get(function(req, res){
     let data = req.params.name;
 
@@ -55,6 +59,7 @@ routes.route('/findByName/:name').get(function(req, res){
     });
 });
 
+{/*Finding a product by its code*/}
 routes.route('/findByCode/:name').get(function(req, res){
     let data = req.params.name;
 
@@ -64,6 +69,7 @@ routes.route('/findByCode/:name').get(function(req, res){
     });
 });
 
+{/*Saving a new product*/}
 routes.route('/add').post(function(req, res){
     let product = new Product(req.body);
     product.save()
@@ -96,5 +102,80 @@ routes.route('/update/:id').post(function(req, res){
         }
     });
 });
+
 {/*------------------------Clint Server---------------------------- */}
 
+
+const routes2 = express.Router();
+
+app.use ('/clients', routes2);
+
+
+routes2.route('/').get(function(req, res){
+    Client.find(function(err, clients){
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(clients);
+        }
+    });
+
+});
+
+routes2.route('/:id').get(function(req, res){
+    let id = req.params.id;
+    Client.findById(id, function(err, clients){
+        res.json(clients);
+    });
+});
+
+routes2.route('/add').post(function(req, res){
+    let client = new Client(req.body);
+    client.save()
+        .then(client => {
+            res.status(200).json({'client': 'client added successfully'});
+        })
+        .catch(err =>{
+            res.status(400).send('adding new client failed');
+        });
+});
+
+{/*update does not work yet - FIX IT*/}
+routes2.route('/update/:id').post(function(req, res){
+   Client.findById(req.params.id, function(err, client){
+        if(!client){
+            res.status(404).send("data is not found");
+        }
+        else{
+            client.code = req.body.code;
+            client.nome = req.body.nome;
+            client.valor = req.body.adress;
+            client.estoque = req.body.telefone;
+
+            client.save().then(client => {
+                rs.json('Client updated');
+            })
+            .catch(err => {
+                res.status(400).send("Client not possible");
+            });
+        }
+    });
+});
+
+routes2.route('/findClientByName/:name').get(function(req, res){
+    let data = req.params.name;
+
+    Client.findOne({'nome': {$regex: data, $options: 'i'}}, function(err, clients){
+        res.json(clients);
+        
+    });
+});
+
+routes2.route('/findClientByCode/:name').get(function(req, res){
+    let data = req.params.name;
+
+    Client.findOne({'code': data}, function(err, clients){
+        res.json(clients);
+        
+    });
+});
