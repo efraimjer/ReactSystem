@@ -1,6 +1,6 @@
 let mongoose = require ('mongoose');
 
-let productSchema = new mongoose.Schema({
+let clientSchema = new mongoose.Schema({
     code: {
         type: Number,
         unique: true,
@@ -9,16 +9,16 @@ let productSchema = new mongoose.Schema({
     nome: {
         type: String,
     },
-    valor: {
-        type: Number,
+    adress: {
+        type: String,
 
 
     },
-    estoque: {
+    telefone: {
         type: Number,
 
     }
 
 })
 
-module.exports = mongoose.model('Product', productSchema);
+module.exports = mongoose.model('Client', clientSchema);

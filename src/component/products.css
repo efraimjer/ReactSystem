@@ -3,3 +3,57 @@
 color: black
 
 }
+
+.H {
+    text-align: center;
+}
+
+.B {
+    align-items: center;
+}
+
+.tableP {
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px 5px 5px 5px;
+    background: lightblue;
+    
+    
+}
+
+.tableHC {
+    background: grey;
+    width: 100px;
+    border: 1px solid black;
+    box-shadow: black;
+}
+
+.tableHN {
+    background: grey;
+    width: 325px;
+    border: 1px solid black;
+}
+
+.tableRC {
+
+    width: 100px;
+    border: 1px solid black;
+
+}
+
+.tableRN {
+    width: 325px;
+    border: 1px solid black;
+}
+
+.tableHV, .tableHQ{
+    width: 120px;
+    border: 1px solid black;
+    background: gray;
+}
+
+.tableRV, .tableRQ{
+    width: 120px;
+    border: 1px solid black;
+    
+}

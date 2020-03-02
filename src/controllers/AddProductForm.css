@@ -1,6 +1,7 @@
 .form-inline{
     display: flex;
     flex-flow: column;
+    text-transform: uppercase;
 }
 
 
@@ -27,6 +28,7 @@
     border: 1px solid black;
     border-radius: 4px;
     box-sizing: border-box;
+    text-transform: uppercase;
 }
 
 .button {

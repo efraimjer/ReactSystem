@@ -4,23 +4,41 @@ import "react-table-v6/react-table.css";
 /*import Styled from "styled-components";*/
 import Popup from 'reactjs-popup';
 import AddClientForm from '../controllers/AddClientForm';
+import axios from 'axios';
+
+
 
 export default class componentName extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {clients: []};
+}
+
+componentDidMount() {
+    axios.get('http://localhost:5000/clients')
+        .then(response => {
+            this.setState({clients: response.data});
+        })
+        .catch(function (error) {
+            console.log(error);
+        })
+}
+
+componentDidUpdate() {
+    axios.get('http://localhost:5000/clients')
+    .then(response => {
+        this.setState({clients: response.data});
+    })
+    .catch(function (error) {
+        console.log(error);
+    })   
+}
+
+
   render() {
 
-    const data = [{
-      code: '001',
-      nome: 'Solange Moron',
-      local: 'Mercado Polo vila Verde',
-      fone: '49 99999 9999'
-    },{
-      code: '002',
-      nome: 'Gislaine beto',
-      local: 'Agro Videira de carli',
-      fone: '49 99999 9999'
-    }
-  ]
-
+    
     const columns = [{
       Header: 'Código',
       accessor: 'code'
@@ -30,10 +48,10 @@ export default class componentName extends Component {
       accessor: 'nome'
     },{
       Header: 'Endereço',
-      accessor: 'local'
+      accessor: 'adress'
     },{
       Header: 'Telefone',
-      accessor: 'fone'
+      accessor: 'telefone'
     }
   ]
 
@@ -44,8 +62,9 @@ export default class componentName extends Component {
       <div>     
           <ReactTable className="ReactTableE" 
           pageSize={10}
-          data={data}
-          columns={columns}>            
+          data={this.state.clients}
+          columns={columns}
+          filterable={true}>            
           </ReactTable>
           <Popup trigger={<button> + Cliente</button>} 
                 modal

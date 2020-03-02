@@ -15,7 +15,7 @@
 
 .App-header-ul {
 
-    border: 1px solid white;
+    border: 1px solid black;
     text-align: left;
     display: inline;
     justify-content: center;   
@@ -29,8 +29,15 @@
     align-items: left;
     align-content: left;
     justify-content: left;
-    font-size: calc(10px + 2vmin);
+    font-size: calc(5px + 2vmin);
     color: black;
+   
+   
+}
+
+.App-header .table{
+
+   
 }
 
 .App-link {
@@ -48,5 +55,29 @@
 
 .App-body {
     text-align: center;
+    
 }
 
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 160px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 1; /* Stay at the top */
+    left: 0;
+    background-color: #282c34; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+
+  .sidenav p {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+  }
+
+  .sidenav p:hover {
+    color: #f1f1f1;
+  }

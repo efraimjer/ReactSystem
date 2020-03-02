@@ -6,6 +6,8 @@ const mongoose = require('mongoose');
 const PORT = 4000;
 
 let Product = require('./models/ProductModel')
+let Client = require('./models/ClientModel')
+
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -44,6 +46,24 @@ routes.route('/:id').get(function(req, res){
     });
 });
 
+routes.route('/findByName/:name').get(function(req, res){
+    let data = req.params.name;
+
+    Product.findOne({'nome': {$regex: data, $options: 'i'}}, function(err, products){
+        res.json(products);
+        
+    });
+});
+
+routes.route('/findByCode/:name').get(function(req, res){
+    let data = req.params.name;
+
+    Product.findOne({'code': data}, function(err, products){
+        res.json(products);
+        
+    });
+});
+
 routes.route('/add').post(function(req, res){
     let product = new Product(req.body);
     product.save()
@@ -76,3 +96,5 @@ routes.route('/update/:id').post(function(req, res){
         }
     });
 });
+{/*------------------------Clint Server---------------------------- */}
+
