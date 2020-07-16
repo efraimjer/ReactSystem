@@ -11,12 +11,24 @@ let clientSchema = new mongoose.Schema({
     },
     adress: {
         type: String,
-
-
     },
     telefone: {
         type: Number,
-
+    },
+    link:{
+        type: String,
+    },
+    instagramUser: {
+        type: String,
+    },
+    facebookUser:{
+        type: String,
+    },
+    instagramPassword: {
+        type: String,
+    },
+    facebookPassword: {
+        type: String,
     }
 
 })

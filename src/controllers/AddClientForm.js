@@ -11,13 +11,22 @@ export default class componentName extends Component {
     this.onChangeNome = this.onChangeNome.bind(this);
     this.onChangeAdress = this.onChangeAdress.bind(this);
     this.onChangeTelefone = this.onChangeTelefone.bind(this);
+    this.onChangeLink = this.onChangeLink.bind(this);
+    this.onChangeInstagramUser = this.onChangeInstagramUser.bind(this);
+    this.onChangeInstagramPassword = this.onChangeInstagramPassword.bind(this);
+
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       code: 0,
-      nome: '',
+      nome:'',
       adress: '',
-      telefone: 0
+      telefone: 0,
+      link: '',
+      instagramUser: '',
+      facebookUser: '',
+      instagramPassword: '',
+      facebookPassword: ''
     }
   }  
 
@@ -45,6 +54,26 @@ export default class componentName extends Component {
     });
   }
 
+  onChangeLink(e){
+    this.setState({
+      link: e.target.value
+    });
+  }
+
+  onChangeInstagramUser(e){
+    this.setState({
+      instagramUser: e.target.value
+    });
+  }
+
+  onChangeInstagramPassword(e){
+    this.setState({
+      instagramPassword: e.target.value
+    })
+  }
+
+
+
   onSubmit(e){
     e.preventDefault();
 
@@ -59,7 +88,10 @@ export default class componentName extends Component {
       code: this.state.code,
       nome: this.state.nome,
       adress: this.state.adress,
-      telefone: this.state.telefone
+      telefone: this.state.telefone,
+      link: this.state.link,
+      intagramUser: this.state.instagramUser,
+      instagramPassword: this.state.instagramPassword
     };
 
     axios.post('http://localhost:4000/clients/add', newClient)
@@ -69,7 +101,13 @@ export default class componentName extends Component {
       code: 0,
       nome:'',
       adress: '',
-      telefone: 0
+      telefone: 0,
+      link: '',
+      instagramUser: '',
+      facebookUser: '',
+      instagramPassword: '',
+      facebookPassword: ''
+
     })
 
   }
@@ -103,6 +141,27 @@ export default class componentName extends Component {
                 type="number" 
                 value={this.state.telefone}
                 onChange={this.onChangeTelefone}
+                />
+                
+            <label className="label">Link Whatsapp</label>
+            <input className="input-field"
+                type="String" 
+                value={this.state.link}
+                onChange={this.onChangeLink}
+                />
+
+            <label className="label">Instagram</label>
+            <input className="input-field"
+                type="String" 
+                value={this.state.instagramUser}
+                onChange={this.onChangeInstagramUser}
+                />
+
+            <label className="label">Senha</label>
+            <input className="input-field"
+                type="String" 
+                value={this.state.instagramPassword}
+                onChange={this.onChangeInstagramPassword}
                 />
 
             <button className ="button">Adicionar</button>

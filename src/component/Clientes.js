@@ -52,6 +52,12 @@ componentDidUpdate() {
     },{
       Header: 'Telefone',
       accessor: 'telefone'
+    },{
+      Header: 'Whatsapp link',
+      accessor: 'link'
+    },{
+      Header: 'Instagram',
+      accessor: 'instagramUser'
     }
   ]
 
