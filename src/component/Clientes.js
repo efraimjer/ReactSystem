@@ -58,13 +58,17 @@ componentDidUpdate() {
     },{
       Header: 'Instagram',
       accessor: 'instagramUser'
+    },
+    {
+      Header: 'Senha',
+      accessor: 'instagramPassword'
     }
   ]
 
 
     return (
 
-      <body>
+      
       <div>     
           <ReactTable className="-striped" 
           pageSize={10}
@@ -78,7 +82,7 @@ componentDidUpdate() {
                     <AddClientForm/>
           </Popup>
           </div>
-    </body>
+    
 
 
     )

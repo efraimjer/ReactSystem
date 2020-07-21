@@ -94,7 +94,7 @@ routes.route('/update/:id').post(function(req, res){
             product.estoque = req.body.estoque;
 
             product.save().then(product => {
-                rs.json('Product updated');
+                res.json('Product updated');
             })
             .catch(err => {
                 res.status(400).send("Update not possible");
@@ -149,11 +149,11 @@ routes2.route('/update/:id').post(function(req, res){
         else{
             client.code = req.body.code;
             client.nome = req.body.nome;
-            client.valor = req.body.adress;
-            client.estoque = req.body.telefone;
+            client.adress = req.body.adress;
+            client.telefone = req.body.telefone;
 
             client.save().then(client => {
-                rs.json('Client updated');
+                res.json('Client updated');
             })
             .catch(err => {
                 res.status(400).send("Client not possible");

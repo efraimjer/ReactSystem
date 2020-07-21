@@ -90,7 +90,7 @@ export default class componentName extends Component {
       adress: this.state.adress,
       telefone: this.state.telefone,
       link: this.state.link,
-      intagramUser: this.state.instagramUser,
+      instagramUser: this.state.instagramUser,
       instagramPassword: this.state.instagramPassword
     };
 

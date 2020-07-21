@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 import Products from './component/Products';
 import Clientes from './component/Clientes'
+import Time from './component/time'
 import NewSale from  './controllers/NewSale'
 import Popup from 'reactjs-popup';
 import Styled from "styled-components";
@@ -49,6 +50,9 @@ class App extends Component {
                     closeOnDocumentClick>
                         <NewSale/>
                     </Popup>
+                </ul>
+                <ul>
+                    <Time/>
                 </ul>                 
             </header>
         </container>
