@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import './App.css';
 import Products from './component/Products';
 import Clientes from './component/Clientes'
-import Time from './component/time'
+import Time from './component/Time'
+import Money from './component/Money'
 import NewSale from  './controllers/NewSale'
 import Popup from 'reactjs-popup';
 import Styled from "styled-components";
@@ -26,16 +27,15 @@ class App extends Component {
         `
     return ( 
 
-    
-    <div className = "App" >
-        <container>
+        <div className = "App" >
+        <div>
             <header className="App-header">
                 <ul>
-                    <Popup trigger={<Button>Produtos</Button>} 
+                    {/* <Popup trigger={<Button>Produtos</Button>} 
                     modal
                     closeOnDocumentClick>
                         <Products></Products>
-                    </Popup>                    
+                    </Popup>                     */}
                 </ul>
                 <ul>  
                     <Popup trigger={<Button>Clientes</Button>} 
@@ -52,29 +52,32 @@ class App extends Component {
                     </Popup>
                 </ul>
                 <ul>
-                    <Time/>
-                </ul>                 
+                    <Money/>
+                </ul>
+            
             </header>
-        </container>
+        </div>
 
-        <body className = "App-body">
+        
 
 
 
             <Router>
             <p><Link to ="/products">Products</Link></p>
             <p><Link to ="/clients">Clients</Link></p>
-            <Route path = "/products" exact component={Products}/>
+            {/* <Route path = "/products" exact component={Products}/> */}
             <Route path = "/clients" exact component={Clientes}/>
  
             </Router>
 
+
+            </div >
+
   
 
-        </body>
         
       
-</div >
+
     );
 }
 }

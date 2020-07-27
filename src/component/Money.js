@@ -6,14 +6,14 @@ import axios from 'axios';
 export default class componentName extends Component{
     constructor(props){
         super(props);
-        this.state = {time: []}
+        this.state = {money: []}
 
     }
 
     componentDidMount(){
-        axios.get("http://worldtimeapi.org/api/ip")
+        axios.get("https://economia.awesomeapi.com.br/json/USD-BRL")
             .then(response =>{
-                this.setState({time: response.data});
+                this.setState({money: response.data});
             })
             .catch(function(error){
                 console.log(error)
@@ -21,9 +21,9 @@ export default class componentName extends Component{
     }
 
     componentDidUpdate(){
-        axios.get("http://worldtimeapi.org/api/ip")
+        axios.get("https://economia.awesomeapi.com.br/json/USD-BRL")
         .then(response =>{
-            this.setState({time: response.data});
+            this.setState({money: response.data});
         })
         .catch(function(error){
             console.log(error)
@@ -39,14 +39,15 @@ export default class componentName extends Component{
             fontFamily: "helvetica"
         }
 
-        const {time} = this.state;
+        const {money} = this.state;
         
         return (
             <div>
-               
+                {money.map(money => (
 
-               <p style={pStyle}>{time.datetime}</p>
-           
+                <p style={pStyle} key={money}>{money.name} - R$ {money.low} <br /> Variação - R$ {money.varBid}</p>
+                
+                ))}
                 
 
                     

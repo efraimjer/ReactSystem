@@ -47,24 +47,27 @@ export default class products extends Component {
 
       return (
     <div>
-      <table>
-      <tr>
-        <th>Nome</th>
-        <th>User</th>
-      </tr>
+      {/* <table>
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>User</th>
+          </tr>
+        </thead>
           
       {clients.map(client=>(
         
-
+        <tbody>
           <tr>
             <td key={client}>{client.nome}</td>
             <td key={client}>{client.instagramUser}</td>
           </tr>
+        </tbody>
         
 
 
       ))}
-      </table>
+      </table> */}
     
     </div>
       )
